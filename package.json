@@ -1,0 +1,33 @@
+{
+  "name": "@graphluency/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "test": "nx run-many -t lint test build typecheck"
+  },
+  "private": true,
+  "devDependencies": {
+    "@expo/cli": "~0.24.14",
+    "@nx/expo": "^21.6.4",
+    "@nx/js": "21.6.4",
+    "@swc-node/register": "~1.9.1",
+    "@swc/core": "~1.5.7",
+    "@swc/helpers": "~0.5.11",
+    "husky": "^9.1.7",
+    "metro-config": "~0.82.4",
+    "metro-resolver": "~0.82.4",
+    "nx": "21.6.4",
+    "prettier": "^2.6.2",
+    "tslib": "^2.3.0",
+    "typescript": "~5.9.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "expo": "~53.0.10",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.3"
+  }
+}
