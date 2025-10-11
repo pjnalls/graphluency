@@ -2,7 +2,9 @@
   "name": "@s2f/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "nx run-many -t lint test build typecheck"
+  },
   "private": true,
   "devDependencies": {
     "@expo/cli": "~0.24.14",
@@ -11,6 +13,7 @@
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "husky": "^9.1.7",
     "metro-config": "~0.82.4",
     "metro-resolver": "~0.82.4",
     "nx": "21.6.4",
