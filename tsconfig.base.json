@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@s2f/source"]
+    "customConditions": ["@graphluency/source"]
   }
 }
