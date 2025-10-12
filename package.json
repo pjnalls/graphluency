@@ -5,7 +5,7 @@
   "scripts": {
     "serve:web": "nx serve web --open",
     "build:web": "nx build web",
-    "deploy:web": "npm run build:web && gh-pages -d apps/frontend/web/dist",
+    "deploy:web": "nx reset && rm -fr apps/frontend/web/dist && npm run build:web && gh-pages -d apps/frontend/web/dist",
     "test": "nx run-many -t lint test build typecheck"
   },
   "private": true,

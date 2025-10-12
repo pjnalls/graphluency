@@ -1,4 +1,4 @@
-export const localization = {
+export const translation = {
   "en-US": {
     "title": "Graphluency",
     "subtitle": "Connecting the World of Languages and People",
@@ -24,11 +24,11 @@ export const localization = {
   },
   "ja-JP": {
     "title": "Graphluency",
-    "subtitle": "言語と人々をつないでいます",
+    "subtitle": "言語と人々の世界をつないでいます",
     "slogan": "複数の言語を学習するための流暢度グラフを管理します。",
     "learn": "詳細を見る",
     "about": {
-      "title": "Graphluency（「グラフルエンシー」）について",
+      "title": "Graphluencyについて",
       "imageAltText": "データの視覚化について議論している人々のグループ",
       "subtitle": "革新的な言語階段ソリューション",
       "description": "グラフルエンシーは、スピーキング言語の学習を接続する革新的な言語階段ソリューションを提供することに専念しています。私たちの目標は、直感的なツールを使用して複雑な言語ペアと相互作用を簡素化し、ユーザーを支援することです。"
@@ -120,7 +120,7 @@ export const localization = {
     "slogan": "여러 언어를 학습하기 위한 유창도 그래프를 관리합니다.",
     "learn": "더 알아보기",
     "about": {
-      "title": "Graphluency (\"그래프루엔시\")에 대하여",
+      "title": "Graphluency 에 대하여",
       "imageAltText": "데이터 시각화에 대해 서로 논의하는 사람들 그룹",
       "subtitle": "혁신적인 언어 계단 솔루션",
       "description": "그래프루엔시는 말하는 언어의 학습을 연결하는 혁신적인 언어 계단 솔루션을 제공하기 위해 최선을 다하고 있습니다. 우리의 목표는 복잡한 언어 쌍과 상호 작용을 단순화하여 사용자에게 직관적인 도구를 제공하는 것입니다."
