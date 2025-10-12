@@ -1,4 +1,4 @@
-import{R as H}from"./index-DttLtuwo.js";const D="https://www.tiktok.com/player/v1",O=/tiktok\.com\/(?:player\/v1\/|share\/video\/|@[^/]+\/video\/)([0-9]+)/,c={INIT:-1,ENDED:0,PLAYING:1,PAUSED:2,BUFFERING:3},x={[c.INIT]:"emptied",[c.PAUSED]:"pause",[c.ENDED]:"ended",[c.PLAYING]:"play",[c.BUFFERING]:"waiting"};function N(o,t={}){const e={src:S(o,t),frameborder:0,width:"100%",height:"100%",allow:"accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"};return t.config&&(e["data-config"]=JSON.stringify(t.config)),`
+import{R as H}from"./index-DJDXNvaA.js";const D="https://www.tiktok.com/player/v1",O=/tiktok\.com\/(?:player\/v1\/|share\/video\/|@[^/]+\/video\/)([0-9]+)/,c={INIT:-1,ENDED:0,PLAYING:1,PAUSED:2,BUFFERING:3},x={[c.INIT]:"emptied",[c.PAUSED]:"pause",[c.ENDED]:"ended",[c.PLAYING]:"play",[c.BUFFERING]:"waiting"};function N(o,t={}){const e={src:S(o,t),frameborder:0,width:"100%",height:"100%",allow:"accelerometer; autoplay; fullscreen; encrypted-media; gyroscope; picture-in-picture"};return t.config&&(e["data-config"]=JSON.stringify(t.config)),`
     <style>
       :host {
         display:inline-block;
