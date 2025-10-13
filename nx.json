@@ -34,7 +34,7 @@
       "plugin": "@nx/expo/plugin",
       "options": {
         "startTargetName": "start",
-        "buildTargetName": "build",
+        "buildTargetName": "# build: uncomment when app is ready for this target",
         "prebuildTargetName": "prebuild",
         "serveTargetName": "serve",
         "installTargetName": "install",
@@ -76,6 +76,18 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
+      },
+      "exclude": ["apps/backend/api-e2e/**/*"]
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps",
+        "serveStaticTargetName": "serve-static"
       }
     }
   ],
