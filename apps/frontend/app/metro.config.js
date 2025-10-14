@@ -1,6 +1,9 @@
+const path = require('path');
+
 const { withNxMetro } = require('@nx/expo');
 const { getDefaultConfig } = require('@expo/metro-config');
 const { mergeConfig } = require('metro-config');
+const { withNativeWind } = require('nativewind/metro');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const { assetExts, sourceExts } = defaultConfig.resolver;
@@ -28,6 +31,7 @@ module.exports = withNxMetro(mergeConfig(defaultConfig, customConfig), {
   debug: false,
   // all the file extensions used for imports other than 'ts', 'tsx', 'js', 'jsx', 'json'
   extensions: [],
+  resetCache: true,
   // Specify folders to watch, in addition to Nx defaults (workspace libraries and node_modules)
-  watchFolders: [],
-});
+  watchFolders: [path.resolve(__dirname, './src/assets')],
+}).then((config) => withNativeWind(config, { input: './src/global.css' }));

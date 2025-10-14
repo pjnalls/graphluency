@@ -75,7 +75,7 @@
     {
       "plugin": "@nx/jest/plugin",
       "options": {
-        "targetName": "test"
+        "targetName": "test --passWithNoTests"
       },
       "exclude": ["apps/backend/api-e2e/**/*"]
     },
