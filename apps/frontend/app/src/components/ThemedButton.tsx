@@ -19,7 +19,7 @@ export default function ThemedButton({
   disabled,
 }: ThemedButtonProps) {
   const { dark } = useTheme();
-  const themeStyle = dark ? { color: '#fff' } : { color: '#000' };
+  const colorSchemeStyle = dark ? { color: '#fff' } : { color: '#000' };
 
   return (
     <TouchableOpacity
@@ -28,7 +28,7 @@ export default function ThemedButton({
       style={{ backgroundColor: dark ? '#014a7b' : '#61dafb' }}
       disabled={disabled}
     >
-      <Text style={themeStyle}>{title}</Text>
+      <Text style={colorSchemeStyle}>{title}</Text>
     </TouchableOpacity>
   );
 }

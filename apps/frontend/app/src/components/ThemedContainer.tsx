@@ -2,7 +2,6 @@ import { Platform, View } from 'react-native';
 import { Colors } from '../constants/Colors';
 import { useTheme } from '@react-navigation/native';
 import { ThemedView } from './ThemedView';
-import { Media } from '../constants/Media';
 
 export default function ThemedContainer({
   children,
@@ -24,7 +23,7 @@ export default function ThemedContainer({
         overflow: 'scroll'
       }]}
     >
-      <ThemedView style={Media.styles.view}>
+      <ThemedView>
         {children}
       </ThemedView>
     </View>

@@ -3,9 +3,10 @@ import { Platform, useColorScheme } from 'react-native';
 
 import { HapticTab } from '../../components/HapticTab';
 import { IconSymbol } from '../../components/ui/IconSymbol';
+import { MaterialIcons } from '@expo/vector-icons';
 import TabBarBackground from '../../components/ui/TabBarBackground';
 import { Colors } from '../../constants/Colors';
-import { Media } from '../../constants/Media';
+import BlurHeader from '../../components/ui/Header';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -14,6 +15,8 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        header: ({ options }) => <BlurHeader title={options.title}/>,
+        headerTransparent: true,
         headerShown: true,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -26,17 +29,38 @@ export default function TabLayout() {
             default: {
               position: 'absolute',
             },
-          }),
-          Media.styles.view,
+            web: {
+              borderColor: 
+              colorScheme === 'light' ? '#52525b' : '#71717b',
+            }
+          })
         ],
       }}
     >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Profile',
+          title: 'Home',
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="graphs"
+        options={{
+          title: 'Fluency Graphs',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons size={28} name='auto-graph' color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons size={28} name='person' color={color} />
           ),
         }}
       />

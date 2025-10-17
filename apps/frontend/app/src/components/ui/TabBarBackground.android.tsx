@@ -15,7 +15,7 @@ export default function BlurTabBarBackground() {
       )}
       style={[
         StyleSheet.absoluteFill,
-        { backgroundColor: Colors[colorScheme].tabBackground },
+        { backgroundColor: Colors[colorScheme].tabBackgroundOpaque },
       ]}
     />
   );

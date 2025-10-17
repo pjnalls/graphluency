@@ -1,13 +1,13 @@
-import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
-import { BlurView } from 'expo-blur';
 import { StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { BlurView } from 'expo-blur';
+
+import { ThemedText } from '../ThemedText';
 
 import { Colors } from '../../constants/Colors';
 import { useColorScheme } from '../../hooks/useColorScheme';
 import { cn } from '../../utils/twcn';
 
-export default function BlurTabBarBackground() {
+export default function BlurHeader({ title }: { title?: string }) {
   const colorScheme = useColorScheme() ?? 'light';
   return (
     <BlurView
@@ -20,14 +20,10 @@ export default function BlurTabBarBackground() {
         'flex h-36 justify-end items-center pb-1',
         'backdrop-blur-md',
         colorScheme === 'light' ? 'bg-zinc-600' : 'bg-zinc-500',
-        'border-t-[1px]',
+        'border-b-[1px]',
       )}
-    />
+    >
+      <ThemedText className='text-2xl'>{title}</ThemedText>
+    </BlurView>
   );
-}
-
-export function useBottomTabOverflow() {
-  const tabHeight = useBottomTabBarHeight();
-  const { bottom } = useSafeAreaInsets();
-  return tabHeight - bottom;
 }
