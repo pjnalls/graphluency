@@ -7,7 +7,7 @@ import { Colors } from '../../constants/Colors';
 import { useColorScheme } from '../../hooks/useColorScheme.web';
 import { cn } from '../../utils/twcn';
 
-export default function Card({
+export default function Header({
   title,
   routeName,
 }: {
@@ -18,8 +18,6 @@ export default function Card({
   const path = usePathname();
 
   const matchRoute = () => {
-    console.log(path);
-    console.log(routeName);
     if (routeName === 'index') {
       return path === '/';
     } else {

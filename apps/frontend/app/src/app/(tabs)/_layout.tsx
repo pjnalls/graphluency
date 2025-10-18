@@ -1,4 +1,4 @@
-import { Tabs } from 'expo-router';
+import { router, Tabs } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 
 import { Platform, useColorScheme } from 'react-native';
@@ -8,9 +8,15 @@ import BlurHeader from '../../components/ui/Header';
 import { IconSymbol } from '../../components/ui/IconSymbol';
 import TabBarBackground from '../../components/ui/TabBarBackground';
 import { Colors } from '../../constants/Colors';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { mockAuthenticator } from '../../redux/mock-authenticator';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme() ?? 'light';
+  const isAuthenticated = useAppSelector(
+    (selector) => selector.mockAuthenticator.isAuthenticated,
+  );
+  const dispatch = useAppDispatch();
 
   return (
     <Tabs
@@ -20,7 +26,7 @@ export default function TabLayout() {
         header: ({ options, route }) => (
           <BlurHeader title={options.title} routeName={route.name} />
         ),
-        headerShown: true,
+        headerShown: isAuthenticated,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
         tabBarStyle: [
@@ -37,6 +43,7 @@ export default function TabLayout() {
               borderColor: colorScheme === 'light' ? '#18181b' : '#71717b',
             },
           }),
+          { display: isAuthenticated ? 'flex' : 'none' },
         ],
       }}
     >
@@ -65,6 +72,21 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <MaterialIcons size={28} name="person" color={color} />
           ),
+        }}
+      />
+      <Tabs.Screen
+        name="logout"
+        options={{
+          title: 'Logout',
+          tabBarIcon: ({ color }) => (
+            <MaterialIcons size={28} name="logout" color={color} />
+          ),
+        }}
+        listeners={{
+          tabPress: () => {
+            dispatch(mockAuthenticator({ isAuthenticated: false }));
+            router.replace('/');
+          },
         }}
       />
     </Tabs>

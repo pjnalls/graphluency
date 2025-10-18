@@ -3,11 +3,13 @@ import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
+import { Provider as AppStoreProvider } from 'react-redux';
 import { ThemeProvider } from '@react-navigation/native';
 
 import Background from '../components/ui/Background';
 import { DarkTheme, DefaultTheme } from '../constants/Theme';
 import { useColorScheme } from '../hooks/useColorScheme';
+import { store } from '../redux/store';
 
 import '../global.css';
 
@@ -33,10 +35,12 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Background>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+        <AppStoreProvider store={store}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+        </AppStoreProvider>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
       </Background>
     </ThemeProvider>

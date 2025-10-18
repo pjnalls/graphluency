@@ -1,10 +1,21 @@
-import {
-  ScrollView,
-} from 'react-native';
+import { usePathname } from 'expo-router';
+import { ScrollView, View } from 'react-native';
 
-export default function ProfileScreen() {
+import { useAppSelector } from '../../redux/hooks';
+import { matchRoute } from '../../utils/tabs';
+import Login from '../../components/feat/Login';
+
+export default function HomeScreen() {
+  const path = usePathname();
+  const isAuthenticated = useAppSelector(
+    (selector) => selector.mockAuthenticator.isAuthenticated,
+  );
+
   return (
-    <ScrollView contentContainerClassName="flex-1 justify-center">
-    </ScrollView>
+    matchRoute(path, 'index') && (
+      <ScrollView contentContainerClassName="flex-1">
+        {isAuthenticated ? <View /> : <Login />}
+      </ScrollView>
+    )
   );
 }
