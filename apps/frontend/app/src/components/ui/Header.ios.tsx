@@ -11,7 +11,7 @@ export default function BlurHeader({ title }: { title?: string }) {
   const colorScheme = useColorScheme() ?? 'light';
   return (
     <BlurView
-      intensity={colorScheme === 'light' ? 100 : 28}
+      intensity={colorScheme === 'light' ? 12 : 28}
       style={[
         StyleSheet.absoluteFill,
         { backgroundColor: Colors[colorScheme].tabBackground },
@@ -19,7 +19,7 @@ export default function BlurHeader({ title }: { title?: string }) {
       className={cn(
         'flex h-36 justify-end items-center pb-1',
         'backdrop-blur-md',
-        colorScheme === 'light' ? 'bg-zinc-600' : 'bg-zinc-500',
+        colorScheme === 'light' ? 'border-zinc-600' : 'border-zinc-500',
         'border-b-[1px]',
       )}
     >

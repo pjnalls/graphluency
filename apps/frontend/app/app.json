@@ -8,6 +8,7 @@
     "scheme": "@graphluency/app",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "backgroundColor": "#000",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.pjnalls.graphluencyapp"
@@ -18,7 +19,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#fff"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.pjnalls.graphluencyapp"
@@ -34,7 +35,7 @@
           "image": "./src/assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#00f"
         }
       ]
     ]

@@ -1,22 +1,25 @@
 import { Tabs } from 'expo-router';
+import { MaterialIcons } from '@expo/vector-icons';
+
 import { Platform, useColorScheme } from 'react-native';
 
 import { HapticTab } from '../../components/HapticTab';
+import BlurHeader from '../../components/ui/Header';
 import { IconSymbol } from '../../components/ui/IconSymbol';
-import { MaterialIcons } from '@expo/vector-icons';
 import TabBarBackground from '../../components/ui/TabBarBackground';
 import { Colors } from '../../constants/Colors';
-import BlurHeader from '../../components/ui/Header';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const colorScheme = useColorScheme() ?? 'light';
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        header: ({ options }) => <BlurHeader title={options.title}/>,
-        headerTransparent: true,
+        tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].tabIconDefault,
+        header: ({ options, route }) => (
+          <BlurHeader title={options.title} routeName={route.name} />
+        ),
         headerShown: true,
         tabBarButton: HapticTab,
         tabBarBackground: TabBarBackground,
@@ -25,15 +28,15 @@ export default function TabLayout() {
             ios: {
               // Use a transparent background on iOS to show the blur effect
               position: 'absolute',
+              borderWidth: 1,
             },
             default: {
               position: 'absolute',
             },
             web: {
-              borderColor: 
-              colorScheme === 'light' ? '#52525b' : '#71717b',
-            }
-          })
+              borderColor: colorScheme === 'light' ? '#18181b' : '#71717b',
+            },
+          }),
         ],
       }}
     >
@@ -51,7 +54,7 @@ export default function TabLayout() {
         options={{
           title: 'Fluency Graphs',
           tabBarIcon: ({ color }) => (
-            <MaterialIcons size={28} name='auto-graph' color={color} />
+            <MaterialIcons size={28} name="auto-graph" color={color} />
           ),
         }}
       />
@@ -60,7 +63,7 @@ export default function TabLayout() {
         options={{
           title: 'Profile',
           tabBarIcon: ({ color }) => (
-            <MaterialIcons size={28} name='person' color={color} />
+            <MaterialIcons size={28} name="person" color={color} />
           ),
         }}
       />
