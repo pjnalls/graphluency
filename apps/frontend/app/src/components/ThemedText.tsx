@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react';
 import { Text, type TextProps } from 'react-native';
 
 import { useThemeColor } from '../hooks/useThemeColor';
@@ -9,13 +10,18 @@ export type ThemedTextProps = TextProps & {
 };
 
 export function ThemedText({
+  children,
   style,
   lightColor,
   darkColor,
   className,
   ...rest
-}: ThemedTextProps) {
+}: PropsWithChildren<ThemedTextProps>) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
 
-  return <Text style={[{ color }, style]} className={className} {...rest} />;
+  return (
+    <Text style={[{ color }, style]} className={className} {...rest}>
+      {children}
+    </Text>
+  );
 }

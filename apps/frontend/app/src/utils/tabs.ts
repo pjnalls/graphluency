@@ -1,7 +1,13 @@
+import { Platform } from 'react-native';
+
 export const matchRoute = (path: string, routeName?: string) => {
-  if (routeName === 'index') {
-    return path === '/';
+  if (Platform.OS === 'web') {
+    if (routeName === 'index') {
+      return path === '/';
+    } else {
+      return path === `/${routeName}`;
+    }
   } else {
-    return path === `/${routeName}`;
+    return true;
   }
 };

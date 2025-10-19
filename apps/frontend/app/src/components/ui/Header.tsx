@@ -5,6 +5,7 @@ import { ThemedText } from '../ThemedText';
 
 import { Colors } from '../../constants/Colors';
 import { useColorScheme } from '../../hooks/useColorScheme.web';
+import { matchRoute } from '../../utils/tabs';
 import { cn } from '../../utils/twcn';
 
 export default function Header({
@@ -17,20 +18,12 @@ export default function Header({
   const colorScheme = useColorScheme() ?? 'light';
   const path = usePathname();
 
-  const matchRoute = () => {
-    if (routeName === 'index') {
-      return path === '/';
-    } else {
-      return path === `/${routeName}`;
-    }
-  };
-
   return (
     <View className="flex-1">
-      {matchRoute() && (
+      {matchRoute(path, routeName) && (
         <View
           className={cn(
-            'h-36 justify-end items-center pb-2',
+            'h-24 justify-end items-center pb-2',
             'backdrop-blur-md',
             colorScheme === 'light'
               ? 'border-zinc-900 brightness-150'

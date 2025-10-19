@@ -10,10 +10,12 @@ export default function Card({
   children,
   rowDirection = 'flex-col',
   variant = 'dark',
+  padding = 'p-2',
   gap = 'gap-1',
 }: PropsWithChildren<{
   rowDirection: 'flex-col' | 'flex-row';
   variant: 'light' | 'dark';
+  padding?: 'p-2' | 'p-3' | 'p-4';
   gap?: 'gap-1' | 'gap-2' | 'gap-3' | 'gap-4';
 }>) {
   const colorScheme = useColorScheme() ?? 'light';
@@ -24,11 +26,11 @@ export default function Card({
         'justify-end items-center',
         'backdrop-blur-md',
         colorScheme === 'light'
-          ? 'border-zinc-900 brightness-150'
+          ? 'border-zinc-400 border-b-zinc-600 border-r-zinc-600 brightness-150'
           : 'border-zinc-400 border-b-zinc-600 border-r-zinc-600',
         'border-[1px] w-full rounded-sm',
       )}
-      style={[{ backgroundColor: Colors[colorScheme].tabBackgroundWeb }]}
+      style={[{ backgroundColor: Colors['dark'].tabBackgroundWeb }]}
     >
       <LinearGradient
         colors={['transparent', '#1029']}
@@ -38,8 +40,9 @@ export default function Card({
       />
       <View
         className={cn(
-          'z-10 justify-center items-center py-2',
+          'z-10 justify-center items-center',
           rowDirection,
+          padding,
           gap,
         )}
       >
@@ -63,8 +66,9 @@ export default function Card({
       />
       <View
         className={cn(
-          'z-10 justify-center items-center py-2',
+          'z-10 justify-center items-center',
           rowDirection,
+          padding,
           gap,
         )}
       >

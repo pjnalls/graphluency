@@ -3,13 +3,14 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 import { Platform, useColorScheme } from 'react-native';
 
+import { Colors } from '../../constants/Colors';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { mockAuthenticator } from '../../redux/mock-authenticator';
+
 import { HapticTab } from '../../components/HapticTab';
 import BlurHeader from '../../components/ui/Header';
 import { IconSymbol } from '../../components/ui/IconSymbol';
 import TabBarBackground from '../../components/ui/TabBarBackground';
-import { Colors } from '../../constants/Colors';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { mockAuthenticator } from '../../redux/mock-authenticator';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme() ?? 'light';
