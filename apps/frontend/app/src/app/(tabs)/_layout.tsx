@@ -1,5 +1,5 @@
 import { router, Tabs } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 import { Platform, useColorScheme } from 'react-native';
 
@@ -9,7 +9,6 @@ import { mockAuthenticator } from '../../redux/mock-authenticator';
 
 import { HapticTab } from '../../components/HapticTab';
 import BlurHeader from '../../components/ui/Header';
-import { IconSymbol } from '../../components/ui/IconSymbol';
 import TabBarBackground from '../../components/ui/TabBarBackground';
 
 export default function TabLayout() {
@@ -51,9 +50,9 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Community',
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="house.fill" color={color} />
+            <MaterialCommunityIcons size={28} name="earth" color={color} />
           ),
         }}
       />
@@ -69,7 +68,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: 'Profile',
+          title: 'My Profile',
           tabBarIcon: ({ color }) => (
             <MaterialIcons size={28} name="person" color={color} />
           ),

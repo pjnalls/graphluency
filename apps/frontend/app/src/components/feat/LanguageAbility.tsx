@@ -19,7 +19,7 @@ export default function LanguageAbility({
   currentLevel,
 }: LanguageAbilityProps) {
   const colorScheme = useColorScheme() ?? 'light';
-  
+
   const getStarColors = (currentLevel: SkillLevel = 'A0') => {
     const starColors: { color: string; level: SkillLevel }[] = [];
 
@@ -39,12 +39,10 @@ export default function LanguageAbility({
   };
 
   return (
-    <View className="flex-row justify-between sm:w-[49%] w-full">
+    <View className="flex-row justify-between">
       <View className="flex-row gap-2 items-center">
-        {getCountryFlagReactSvG(countryCode, countryName, 'w-8 sm:w-6 md:w-10 rounded-sm')}
-        <ThemedText className="text-lg sm:text-sm md:text-lg">
-          {abilityName}
-        </ThemedText>
+        {getCountryFlagReactSvG(countryCode, countryName)}
+        <ThemedText className="text-base">{abilityName}</ThemedText>
       </View>
       <View className="flex-row gap-0 sm:gap-[2px]">
         {getStarColors(currentLevel).map(({ color, level }, index) => {
@@ -59,8 +57,12 @@ export default function LanguageAbility({
               <MaterialCommunityIcons size={20} name="star" color={color} />
               <Text
                 className={cn(
-                  colorScheme === 'dark' ? 'text-teal-400' : 'text-teal-950',
-                  'text-xs md:text-sm lg:text-base',
+                  colorScheme === 'dark'
+                    ? currentLevel === level
+                      ? 'text-teal-100 '
+                      : 'text-teal-400'
+                    : 'text-teal-950',
+                  'text-xs md:text-sm',
                 )}
               >
                 {level}

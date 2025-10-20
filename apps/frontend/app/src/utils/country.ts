@@ -17,9 +17,16 @@ export const getCountryFlagReactSvG = (
     if (!Flag) {
       return CountryFlags.US({ title: 'UnitedStates' });
     } else {
-      return Flag({ title: countryName, className });
+      return Flag({
+        title: countryName,
+        className: 'w-8 md:w-10 rounded-sm',
+      });
     }
   } else {
-    return RNCountryFlag({ isoCode: countryCode.toLowerCase(), size: 24 });
+    return RNCountryFlag({
+      isoCode: countryCode.toLowerCase(),
+      size: 24,
+      style: { borderRadius: 2 },
+    });
   }
 };

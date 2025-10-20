@@ -1,5 +1,5 @@
 import { LinearGradient } from 'expo-linear-gradient';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 
 import { Colors } from '../../constants/Colors';
 import { useColorScheme } from '../../hooks/useColorScheme.web';
@@ -40,7 +40,7 @@ export default function Card({
       />
       <View
         className={cn(
-          'z-10 justify-center items-center',
+          'z-10 justify-center items-center w-full',
           rowDirection,
           padding,
           gap,
@@ -52,21 +52,29 @@ export default function Card({
   ) : (
     <View
       className={cn(
-        'bg-[#efdfffbf] rounded-sm backdrop-blur-md',
+        'rounded-sm backdrop-blur-md',
         'gap-1',
-        'border-[1px]',
+        'border-[1px] w-full',
         'border-white border-b-zinc-500 border-r-zinc-500',
       )}
+      style={[
+        {
+          backgroundColor:
+            Platform.OS === 'web'
+              ? Colors['light'].tabBackgroundWeb
+              : Colors['light'].tabBackground,
+        },
+      ]}
     >
       <LinearGradient
-        colors={['#fff', 'transparent']}
+        colors={['#fffc', 'transparent']}
         className="absolute h-full w-full z-0"
         start={{ x: 0, y: 0 }}
         end={{ x: 0.5, y: 0.5 }}
       />
       <View
         className={cn(
-          'z-10 justify-center items-center',
+          'z-10 justify-center items-center w-full',
           rowDirection,
           padding,
           gap,
