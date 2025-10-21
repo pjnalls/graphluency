@@ -7,7 +7,7 @@ import {
   SkillLevel,
   SkillLevels,
 } from '../../types/ability';
-import { getCountryFlagReactSvG } from '../../utils/country';
+import CountryFlag from '../ui/CountryFlag';
 import { cn } from '../../utils/twcn';
 
 import { ThemedText } from '../ThemedText';
@@ -17,7 +17,8 @@ export default function LanguageAbility({
   countryName,
   abilityName,
   currentLevel,
-}: LanguageAbilityProps) {
+  className,
+}: LanguageAbilityProps & { className?: string }) {
   const colorScheme = useColorScheme() ?? 'light';
 
   const getStarColors = (currentLevel: SkillLevel = 'A0') => {
@@ -39,9 +40,9 @@ export default function LanguageAbility({
   };
 
   return (
-    <View className="flex-row justify-between">
+    <View className={cn('flex-row justify-between', className)}>
       <View className="flex-row gap-2 items-center">
-        {getCountryFlagReactSvG(countryCode, countryName)}
+        <CountryFlag {...{ countryCode, countryName }} />
         <ThemedText className="text-base">{abilityName}</ThemedText>
       </View>
       <View className="flex-row gap-0 sm:gap-[2px]">

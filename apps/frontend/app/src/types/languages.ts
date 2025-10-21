@@ -100,4 +100,5 @@ export const Top100Languages = [
   'Gikuyu',
   'Yakan',
   'Balochi (Southern)',
-];
+  'Cantonese Chinese',
+] as const;

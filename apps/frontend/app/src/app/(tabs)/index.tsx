@@ -8,17 +8,8 @@ import { cn } from '../../utils/twcn';
 
 import Login from '../../components/feat/Login';
 import TabContainer from '../../components/ui/TabContainer';
-import { BriefProfileProps } from '../../types';
-import BriefProfile from '../../components/feat/BriefProfile';
-
-const briefProfileProps: BriefProfileProps = {
-  learning: [
-    { countryCode: 'TW', countryName: 'Taiwan' },
-    { countryCode: 'ES', countryName: 'Spain' },
-    { countryCode: 'JP', countryName: 'Japan' },
-    { countryCode: 'KR', countryName: 'Korea (ROK)' },
-  ],
-};
+import ProfileShort from '../../components/feat/ProfileShort';
+import { PROFILE_SHORTS_PROPS } from '../../data';
 
 export default function HomeScreen() {
   const colorScheme = useColorScheme() ?? 'light';
@@ -30,29 +21,28 @@ export default function HomeScreen() {
   return (
     matchRoute(path, 'index') &&
     (!isAuthenticated ? (
-      <ScrollView contentContainerClassName="flex-1">
-        <Login />
-      </ScrollView>
+      <Login />
     ) : (
       <TabContainer>
-        <View className="gap-4 w-full flex-1">
-          {new Array(10).fill(0).map((_, index) => (
-            <View key={`brief-profile-${index}`} className="flex-1">
-              {index > 0 && (
-                <View
-                  className={cn(
-                    'border-0 h-[1px] bg-zinc-400 w-full mb-4',
-                    colorScheme === 'light'
-                      ? 'bg-zinc-700 brightness-150'
-                      : 'bg-zinc-300',
-                    '',
-                  )}
-                />
+        {PROFILE_SHORTS_PROPS.map((props, index) => (
+          <View
+            key={`brief-profile-${index}`}
+            className="sm:gap-0 gap-4 w-full"
+          >
+            <View
+              className={cn(
+                'border-b-[1px] w-full sm:mt-2 sm:mb-4 mt-[6px] mb-[-1px]',
+                colorScheme === 'light'
+                  ? 'border-b-zinc-700 brightness-150'
+                  : 'border-b-zinc-300',
+                index > 0 ? '' : 'hidden',
               )}
-              <BriefProfile {...briefProfileProps} />
+            />
+            <View className={cn(index <= 0 && 'mt-0 mb-[2px]')}>
+              <ProfileShort {...props} />
             </View>
-          ))}
-        </View>
+          </View>
+        ))}
       </TabContainer>
     ))
   );

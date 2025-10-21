@@ -1,5 +1,13 @@
-import { CountryCode, CountryName } from "./ability";
+import { ImageSourcePropType } from 'react-native';
 
-export type BriefProfileProps = {
-    learning: { countryCode: CountryCode; countryName: CountryName }[]
-}
+import { CountryName, LanguageAbilityProps } from './ability';
+import { LanguagesLearningProps } from './learning';
+
+
+export type ProfileShortProps = {
+  abilities: [LanguageAbilityProps, LanguageAbilityProps];
+  learning: LanguagesLearningProps;
+  location: CountryName;
+  name: string;
+  profilePic: ImageSourcePropType | undefined;
+};

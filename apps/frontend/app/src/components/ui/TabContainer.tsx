@@ -1,6 +1,6 @@
+import { usePathname } from 'expo-router';
 import { PropsWithChildren } from 'react';
 import {
-    Dimensions,
   ScrollView,
   Platform,
   View,
@@ -17,23 +17,23 @@ export default function TabContainer({ children }: PropsWithChildren) {
   const { width, height } = useWindowDimensions();
 
   const isTablet = width > 768;
-  const isWindowHeightTall = height > 720;
-  const isScreenHeightTall = Dimensions.get('screen').width > 420;
+  const isWindowHeightTall = height > 420;
+  const isProfileRoute = usePathname() === '/profile';
 
   return (
     <ScrollView
       contentContainerClassName={cn(
-        'flex-1 w-full',
-        Platform.OS === 'web' ? 'md:pt-28 pt-[108px]' : 'pt-16',
+        'w-full',
+        Platform.OS === 'web' ? 'sm:pt-[114px] pt-[104px]' : 'pt-[136px]',
         'px-2 sm:px-4 max-w-3xl mx-auto',
       )}
     >
       <View
         className={cn(
-          'pb-2 md:pb-4',
-          isWindowHeightTall && isScreenHeightTall &&
+          Platform.OS === 'web' ? 'pb-2' : 'pb-12',
+          isWindowHeightTall && isProfileRoute &&
             (isTablet || Platform.OS !== 'web') &&
-            'justify-center flex-1',
+            'justify-center',
         )}
       >
         <Card

@@ -1,31 +1,36 @@
 import { useState } from 'react';
 import { View, ActivityIndicator, Image, Text } from 'react-native';
 
-import { abilities } from '../../data/abilities';
 import { useColorScheme } from '../../hooks/useColorScheme';
-import { BriefProfileProps } from '../../types';
-import { getCountryFlagReactSvG } from '../../utils/country';
+import { ProfileShortProps } from '../../types';
 import { cn } from '../../utils/twcn';
 
 import { ThemedText } from '../ThemedText';
 import LanguageAbility from './LanguageAbility';
+import LanguagesLearning from './LanguagesLearning';
 
-export default function BriefProfile({ learning }: BriefProfileProps) {
+export default function ProfileShort({
+  abilities,
+  learning,
+  location,
+  name,
+  profilePic
+}: ProfileShortProps) {
   const colorScheme = useColorScheme() ?? 'light';
   const [profilePicLoaded, setProfilePicLoaded] = useState(false);
 
   return (
-    <View className="flex-row w-full gap-4 flex-1">
-      <View className="sm:w-48 sm:h-48 w-40 h-40">
+    <View className="flex-row w-full gap-4 items-center flex-1">
+      <View className="md:w-56 md:h-56 sm:w-48 sm:h-48 w-16 h-36">
         {!profilePicLoaded && (
           <ActivityIndicator
             size="large"
             color={colorScheme === 'light' ? '#42f' : '#6df'}
-            className="absolute sm:w-48 sm:h-48 w-40 h-40"
+            className="absolute w-full h-full"
           />
         )}
         <Image
-          source={require('../../assets/images/profile/preston.webp')}
+          source={profilePic}
           className={cn(
             'flex-1 w-full h-full rounded-sm',
             profilePicLoaded ? 'opacity-100' : 'opacity-0',
@@ -38,33 +43,16 @@ export default function BriefProfile({ learning }: BriefProfileProps) {
       </View>
       <View
         className={cn(
-          'sm:w-[calc(100%-13rem)] w-[calc(100%-11rem)]',
-          'gap-[2px] sm:gap-2',
+          'sm:w-[65%] md:w-[66%] w-[82.5%]',
+          'gap-[2px] sm:gap-2 md:h-56 sm:h-48 h-36',
         )}
       >
         <ThemedText className="text-2xl sm:text-4xl font-semibold">
-          Preston
+          {name}
         </ThemedText>
-        <View className="gap-[3px] md:gap-0">
-          <View className="flex-row gap-2 items-center">
-            <Text
-              className={cn(
-                colorScheme === 'dark' ? 'text-teal-400' : 'text-teal-700',
-                'font-semibold',
-                '',
-              )}
-            >
-              Learning
-            </Text>
-            {learning.map(({ countryCode, countryName }, index) => (
-              <Text
-                key={`brief-profile-learning-country-flags-${index}--${countryCode}`}
-              >
-                {getCountryFlagReactSvG(countryCode, countryName)},
-              </Text>
-            ))}
-          </View>
-          <View className="flex-row gap-2 items-center">
+        <View className="gap-0 md:gap-1">
+          <LanguagesLearning learning={learning} />
+          <View className="flex-row gap-2 items-center flex-1">
             <Text
               className={cn(
                 colorScheme === 'dark' ? 'text-teal-400' : 'text-teal-700',
@@ -80,16 +68,24 @@ export default function BriefProfile({ learning }: BriefProfileProps) {
                 'text-base',
               )}
             >
-              United States of America
+              {location}
             </Text>
           </View>
           <View className="gap-0 md:gap-1 w-full">
-            {abilities.slice(0, 2).map((ability, index) => (
-              <LanguageAbility
-                {...ability}
-                key={`language-abilities-${index}--${ability.abilityName}`}
-              />
-            ))}
+            {abilities.map(
+              (
+                { abilityName, countryCode, countryName, currentLevel },
+                index,
+              ) => (
+                <LanguageAbility
+                  abilityName={abilityName}
+                  countryCode={countryCode}
+                  countryName={countryName}
+                  currentLevel={currentLevel}
+                  key={`language-abilities-${index}--${abilityName}`}
+                />
+              ),
+            )}
           </View>
         </View>
       </View>

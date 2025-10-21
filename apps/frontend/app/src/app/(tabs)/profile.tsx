@@ -5,12 +5,33 @@ import { ActivityIndicator, Text, View } from 'react-native';
 
 import { abilities } from '../../data/abilities';
 import { useColorScheme } from '../../hooks/useColorScheme';
+import { LanguagesLearningProps } from '../../types/learning';
 import { matchRoute } from '../../utils/tabs';
 import { cn } from '../../utils/twcn';
 
 import { ThemedText } from '../../components/ThemedText';
 import LanguageAbility from '../../components/feat/LanguageAbility';
 import TabContainer from '../../components/ui/TabContainer';
+import LanguagesLearning from '../../components/feat/LanguagesLearning';
+
+const LANGUAGES_LEARNING_PROPS: LanguagesLearningProps = [
+  {
+    countryCode: 'TW',
+    countryName: 'Taiwan',
+  },
+  {
+    countryCode: 'CO',
+    countryName: 'Colombia',
+  },
+  {
+    countryCode: 'KR',
+    countryName: 'Korea (ROK)',
+  },
+  {
+    countryCode: 'JP',
+    countryName: 'Japan',
+  },
+];
 
 export default function ProfileScreen() {
   const colorScheme = useColorScheme() ?? 'light';
@@ -51,7 +72,7 @@ export default function ProfileScreen() {
               Preston
             </ThemedText>
             <View className="gap-[3px] md:gap-0">
-              <View className="flex-row gap-1 items-center">
+            <View className="flex-row gap-1 items-center">
                 <Text
                   className={cn(
                     colorScheme === 'dark' ? 'text-teal-400' : 'text-teal-700',
@@ -86,8 +107,11 @@ export default function ProfileScreen() {
                     'text-base',
                   )}
                 >
-                  Tutor, Engineer, and Postgraduate
+                  Engineer, Tutor, and Postgraduate
                 </Text>
+              </View>
+              <View className="flex-row gap-1 items-center">
+                <LanguagesLearning learning={LANGUAGES_LEARNING_PROPS} />
               </View>
               <View className="flex-row gap-1 items-center">
                 <Text
@@ -106,25 +130,6 @@ export default function ProfileScreen() {
                   )}
                 >
                   United States of America
-                </Text>
-              </View>
-              <View className="flex-row gap-1 items-center">
-                <Text
-                  className={cn(
-                    colorScheme === 'dark' ? 'text-teal-400' : 'text-teal-700',
-                    'font-semibold',
-                    '',
-                  )}
-                >
-                  Website
-                </Text>
-                <Text
-                  className={cn(
-                    colorScheme === 'dark' ? 'text-zinc-300' : 'text-zinc-800',
-                    'text-base',
-                  )}
-                >
-                  pjnalls.dev
                 </Text>
               </View>
             </View>

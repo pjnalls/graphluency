@@ -14,7 +14,7 @@ export const abilities: LanguageAbilityProps[] = [
     currentLevel: 'C1',
   },
   {
-    abilityName: 'Chinese',
+    abilityName: 'Mandarin Chinese',
     countryCode: 'TW',
     countryName: 'Taiwan',
     currentLevel: 'B1',
@@ -32,7 +32,7 @@ export const abilities: LanguageAbilityProps[] = [
     currentLevel: 'A2',
   },
   {
-    abilityName: 'Cantonese',
+    abilityName: 'Cantonese Chinese',
     countryCode: 'HK',
     countryName: 'Hong Kong',
     currentLevel: 'A1',
