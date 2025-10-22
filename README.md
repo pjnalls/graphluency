@@ -1,10 +1,8 @@
 # Graphluency
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+<a alt="Graphluency logo" href="https://graphluency.com" target="_blank" rel="noreferrer"><img src="docs/graphluency-logo.png" width="120"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+Run `npx nx graph` to visually explore what was created so far. Now, let's get you up to speed!
 
 ## Finish your CI setup
 
@@ -30,6 +28,14 @@ To run any task with Nx use:
 ```sh
 npx nx <target> <project-name>
 ```
+
+To deploy the `apps/web` app with Nx use:
+
+```sh
+npm run deploy:web
+```
+
+To run other tasks, please refer to the `scripts` section `package.json`.
 
 These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
 
