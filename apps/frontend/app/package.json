@@ -23,6 +23,7 @@
     "react-native": "*",
     "react-native-svg": "*",
     "react-native-svg-transformer": "*",
-    "react-native-web": "*"
+    "react-native-web": "*",
+    "react-native-webview": "*"
   }
 }
