@@ -44,7 +44,7 @@ export default function ProfileShort({
       <View
         className={cn(
           'sm:w-[65%] md:w-[66%] w-[82.5%]',
-          'gap-[2px] sm:gap-2 md:h-56 sm:h-48 h-36',
+          'gap-[2px] sm:gap-2 md:h-56 sm:h-48 h-36 justify-center',
         )}
       >
         <ThemedText className="text-2xl sm:text-4xl font-semibold">

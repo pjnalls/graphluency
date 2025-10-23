@@ -59,7 +59,7 @@ export default function Login() {
           <View className="w-full md:w-2/5">{renderAppIcon()}</View>
           <View className="my-8 w-full md:w-3/5">
             <ThemedText
-              className={'text-white w-full sm:text-6xl text-5xl pb-4'}
+              className={'text-white sm:text-6xl text-5xl pb-4 text-center sm:text-left'}
             >
               Graphfluency
             </ThemedText>
@@ -96,7 +96,7 @@ export default function Login() {
                   </ThemedText>
                 </Card>
               </TouchableOpacity>
-              <View className="flex-row justify-center items-center h-0">
+              <View className="flex-row justify-center items-center my-[-8px]">
                 <View
                   className={cn(
                     'border-0 h-[1px] bg-zinc-400 w-full',
@@ -106,8 +106,8 @@ export default function Login() {
                     'w-2/5',
                   )}
                 />
-                <View className="w-1/5 ">
-                  <ThemedText className="text-center text-lg font-light">
+                <View className="w-1/5 h-full">
+                  <ThemedText className="text-center text-lg">
                     OR
                   </ThemedText>
                 </View>

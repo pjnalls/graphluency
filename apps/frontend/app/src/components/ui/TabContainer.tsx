@@ -16,24 +16,24 @@ export default function TabContainer({ children }: PropsWithChildren) {
   const colorScheme = useColorScheme() ?? 'light';
   const { width, height } = useWindowDimensions();
 
-  const isTablet = width > 768;
+  const isDesktop = width > 1024;
   const isWindowHeightTall = height > 420;
   const isProfileRoute = usePathname() === '/profile';
 
   return (
     <ScrollView
       contentContainerClassName={cn(
-        'w-full',
+        'w-full', isProfileRoute && 'flex-1',
         Platform.OS === 'web' ? 'sm:pt-[114px] pt-[104px]' : 'pt-[136px]',
-        'px-2 sm:px-4 max-w-3xl mx-auto',
+        'px-2 sm:px-4 max-w-4xl mx-auto',
       )}
     >
       <View
         className={cn(
-          Platform.OS === 'web' ? 'pb-2' : 'pb-12',
+          Platform.OS === 'web' ? 'pb-2 sm:pb-4' : 'pb-[94px]',
           isWindowHeightTall && isProfileRoute &&
-            (isTablet || Platform.OS !== 'web') &&
-            'justify-center',
+            (isDesktop || Platform.OS !== 'web') &&
+            'justify-center flex-1',
         )}
       >
         <Card

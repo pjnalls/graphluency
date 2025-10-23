@@ -1,9 +1,10 @@
 import { router, Tabs } from 'expo-router';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-import { Platform, useColorScheme } from 'react-native';
+import { Platform } from 'react-native';
 
 import { Colors } from '../../constants/Colors';
+import { useColorScheme } from '../../hooks/useColorScheme.web';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { mockAuthenticator } from '../../redux/mock-authenticator';
 
@@ -12,7 +13,7 @@ import BlurHeader from '../../components/ui/Header';
 import TabBarBackground from '../../components/ui/TabBarBackground';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme() ?? 'light';
+  const colorScheme = useColorScheme();
   const isAuthenticated = useAppSelector(
     (selector) => selector.mockAuthenticator.isAuthenticated,
   );
@@ -57,7 +58,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="graphs"
+        name="graph"
         options={{
           title: 'Fluency Graphs',
           tabBarIcon: ({ color }) => (

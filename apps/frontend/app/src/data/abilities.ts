@@ -21,8 +21,8 @@ export const abilities: LanguageAbilityProps[] = [
   },
   {
     abilityName: 'Spanish',
-    countryCode: 'ES',
-    countryName: 'Spain',
+    countryCode: 'CO',
+    countryName: 'Colombia',
     currentLevel: 'B1',
   },
   {

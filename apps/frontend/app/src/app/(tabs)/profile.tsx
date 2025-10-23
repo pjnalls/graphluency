@@ -164,10 +164,10 @@ export default function ProfileScreen() {
           </Text>
         </View>
 
-        <View className="flex-wrap w-full flex-row justify-between gap-1">
+        <View className="flex-wrap w-full flex-row justify-between gap-1 lg:gap-[13px]">
           {abilities.map((ability, index) => (
             <View
-              className="md:w-[49%] w-full"
+              className="lg:w-[49%] w-full"
               key={`language-abilities-${index}--${ability.abilityName}`}
             >
               <LanguageAbility {...ability} />
