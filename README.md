@@ -1,13 +1,44 @@
-# Graphluency
+<h1 align="center">
+Graphluency
+</h1>
 
-<a alt="Graphluency logo" href="https://graphluency.com" target="_blank" rel="noreferrer"><img src="docs/graphluency-logo.png" width="120"></a>
+<div align="center">
+
+<a alt="Graphluency logo" href="https://graphluency.com" target="_blank" rel="noreferrer"><img src="docs/graphluency-logo.png" width="200"></a>
+
+</div>
 
 Run `npx nx graph` to visually explore what was created so far. Now, let's get you up to speed!
+
+## Screenshots
+
+Here's what the app looks like currently for the Web, iOS, and Android:
+
+### Dark Mode
+
+<div align="center">
+
+<img alt="Dimmed theme of the app for the browser" src="docs/screenshots/2025-10-23/web-dark.png" width="768">
+
+<img alt="Dimmed theme of the app for Apple mobile devices" src="docs/screenshots/2025-10-23/ios-dark.png" width="384">
+<img alt="Dimmed theme of the app for Google mobile devices" src="docs/screenshots/2025-10-23/android-dark.png" width="384">
+
+</div>
+
+### Light Mode
+
+<div align="center">
+
+<img alt="Bright theme of the app for the browser" src="docs/screenshots/2025-10-23/web-light.png" width="768">
+
+<img alt="Bright theme of the app for Apple mobile devices" src="docs/screenshots/2025-10-23/ios-light.png" width="384">
+<img alt="Bright theme of the app for Google mobile devices" src="docs/screenshots/2025-10-23/android-light.png" width="384">
+
+</div>
 
 ## Finish your CI setup
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/WD7RQ6ZRCC)
-
 
 ## Generate a library
 
@@ -71,7 +102,6 @@ npx nx sync:check
 
 [Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
 
-
 [Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 ## Install Nx Console
@@ -84,12 +114,13 @@ Nx Console is an editor extension that enriches your developer experience. It le
 
 Learn more:
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
+- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 And join the Nx community:
+
 - [Discord](https://go.nx.dev/community)
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
