@@ -48,6 +48,29 @@ export const VIS_JS_HTML = (initialData: unknown) => `
         // Enable built-in editing UI
         manipulation: { 
             enabled: true,
+            addNode: function (nodeData, callback) {
+                // Prompt the user for a node name
+                nodeData.label = window.prompt("Please enter a name for the new node:", "New Node");
+
+                // If the user provides a name (doesn't cancel the prompt)
+                if (nodeData.label !== null && nodeData.label.trim() !== '') {
+                    callback(nodeData); // Add the node with the provided label
+                } else {
+                    callback(null); // Cancel adding the node
+                }
+            },
+            addEdge: function (edgeData, callback) {
+                // Prompt the user for an edge label
+                var edgeLabel = window.prompt("Please enter a name for the new edge:", "");
+
+                // If the user provides a label, update edgeData and add the edge
+                if (edgeLabel !== null) { // Check if user didn't cancel the prompt
+                    edgeData.label = edgeLabel;
+                    callback(edgeData); // Add the edge with the new label
+                } else {
+                    callback(null); // Cancel adding the edge if the user canceled the prompt
+                }
+            },
             editNode: function (nodeData, callback) {
                 // You can display a custom dialog or form here to allow the user
                 // to modify the nodeData. For this example, we'll just prompt for a new label.
@@ -112,7 +135,7 @@ export const VIS_JS_HTML = (initialData: unknown) => `
     }
 
     // Attach listeners to Vis.js events to trigger an update
-    network.on("afterDrawing", setInitialZoom);
+    network.once("stabilizationIterationsDone", setInitialZoom);
     network.on("afterAddingNode", sendGraphUpdate);
     network.on("afterAddingEdge", sendGraphUpdate);
     network.on("afterRemovingNode", sendGraphUpdate);
