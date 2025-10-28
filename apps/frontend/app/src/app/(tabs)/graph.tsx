@@ -1,8 +1,9 @@
 import { usePathname } from 'expo-router';
 import React, { useState } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { WebView } from 'react-native-webview';
 
+import { useColorScheme } from '../../hooks/useColorScheme';
 import { VIS_JS_HTML } from '../../utils/visjs-html';
 import { matchRoute } from '../../utils/tabs';
 
@@ -11,14 +12,15 @@ import TabContainer from '../../components/ui/TabContainer';
 
 const initialGraph = {
   nodes: [
-    { id: 1, label: 'Node A', color: '#6AA84F' },
-    { id: 2, label: 'Node B', color: '#F1C232' },
+    { id: 1, label: 'Japanese', color: '#6aa8ffcc' },
+    { id: 2, label: 'Korean', color: '#32C2f1cc' },
   ],
-  edges: [{ id: 'e1', from: 1, to: 2, label: 'connects' }],
+  edges: [{ id: 'e1', from: 1, to: 2, label: 'grammar' }],
 };
 
 export default function GraphScreen() {
   const path = usePathname();
+  const colorScheme = useColorScheme();
   const [graphData, setGraphData] = useState(initialGraph);
   const webViewRef = React.useRef(null);
 
@@ -41,11 +43,21 @@ export default function GraphScreen() {
           <WebView
             ref={webViewRef}
             style={styles.webView}
+            originWhitelist={['*']}
             // Load the HTML content with the initial data
             source={{ html: VIS_JS_HTML(initialGraph) }}
             // Set up the message listener
             onMessage={handleWebViewMessage}
-
+            renderLoading={() => <ActivityIndicator
+              size="large"
+              color={colorScheme === 'light' ? '#42f' : '#6df'}
+              className="absolute sm:w-44 sm:h-44 w-36 h-36"
+            />}
+            forceDarkOn={colorScheme === 'dark'}
+            javaScriptEnabled={true}
+            textZoom={120}
+            minimumFontSize={120}
+            mixedContentMode='compatibility'
             // Allows scrolling on Android (important for graph interaction)
             androidHardwareAccelerationDisabled
           />

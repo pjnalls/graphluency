@@ -41,7 +41,7 @@ export default function ProfileScreen() {
   return (
     matchRoute(path, 'profile') && (
       <TabContainer>
-        <View className="flex-row w-full gap-4">
+        <View className="flex-row w-full gap-4 items-center">
           <View className="sm:w-44 sm:h-44 w-36 h-36">
             {!profilePicLoaded && (
               <ActivityIndicator
@@ -65,7 +65,7 @@ export default function ProfileScreen() {
           <View
             className={cn(
               'md:w-[calc(100%-12rem)] w-[calc(100%-9rem)]',
-              'gap-[2px] sm:gap-1 m:h-40 h-32',
+              'gap-[2px] sm:gap-1',
             )}
           >
             <ThemedText className="text-2xl sm:text-4xl font-semibold">
